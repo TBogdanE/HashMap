@@ -3,22 +3,28 @@ class HashMap {
     this.arr = new Array(50).fill(null);
   }
 
-  hash(value) {
-    const hashCode = this.createHash(value);
-    this.arr[hashCode] = value;
-  }
-
-  createHash(string) {
+  hash(string) {
     let hashCode = 0;
 
     const primeNumber = 31;
     for (let i = 0; i < string.length; i++) {
       hashCode = primeNumber * hashCode + string.charCodeAt(i);
     }
+
+    hashCode = hashCode % this.arr.length;
     return hashCode;
+  }
+
+  set(key, value) {
+    const hashCode = this.hash(key);
+    this.arr[hashCode] = value;
+    console.log(
+      `Hashcode: ${hashCode}; \n arr[hashcode]: ${this.arr[hashCode]}`
+    );
   }
 }
 
 const hashMap = new HashMap();
-hashMap.hash("Bogdan");
-console.log(hashMap.arr.length);
+hashMap.set("name", "Bogdan");
+hashMap.set("namei", "Salut");
+console.log(hashMap.arr);

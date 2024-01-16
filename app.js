@@ -49,6 +49,16 @@ class HashMap {
     this.arr.splice(key, 1);
     return true;
   }
+
+  length(pos = 0, counter = 0) {
+    while (pos < this.arr.length) {
+      if (this.arr[pos] !== null) {
+        counter += 1;
+      }
+      return this.length(pos + 1, counter);
+    }
+    return counter;
+  }
 }
 
 const hashMap = new HashMap();
@@ -60,4 +70,5 @@ console.log(hashMap.get(22));
 console.log(hashMap.has(2131));
 console.log(hashMap.has(22));
 hashMap.remove(7);
+console.log(hashMap.length());
 console.log(hashMap.arr);

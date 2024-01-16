@@ -50,12 +50,12 @@ class HashMap {
     return true;
   }
 
-  length(pos = 0, counter = 0) {
-    while (pos < this.arr.length) {
-      if (this.arr[pos] !== null) {
+  length() {
+    let counter = 0;
+    for (let i = 0; i < this.arr.length; i++) {
+      if (this.arr[i] !== null) {
         counter += 1;
       }
-      return this.length(pos + 1, counter);
     }
     return counter;
   }

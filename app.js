@@ -59,6 +59,10 @@ class HashMap {
     }
     return counter;
   }
+
+  clear() {
+    this.arr.fill(null);
+  }
 }
 
 const hashMap = new HashMap();
@@ -71,4 +75,5 @@ console.log(hashMap.has(2131));
 console.log(hashMap.has(22));
 hashMap.remove(7);
 console.log(hashMap.length());
+hashMap.clear();
 console.log(hashMap.arr);

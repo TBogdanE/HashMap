@@ -63,10 +63,23 @@ class HashMap {
   clear() {
     this.arr.fill(null);
   }
+
+  values() {
+    let array = [];
+    for (let i = 0; i < this.arr.length; i++) {
+      if (this.arr[i] !== null) {
+        array.push(this.arr[i]);
+      }
+    }
+    return array;
+  }
 }
 
 const hashMap = new HashMap();
 hashMap.set("name", "Bogdan");
+hashMap.set("a", "Bogdan");
+hashMap.set("sadasd", "Bogdan");
+hashMap.set("asdada", "Bogdan");
 hashMap.set("namei", "Salut");
 //console.log(hashMap.get(2131));
 console.log(hashMap.get(40));
@@ -75,5 +88,6 @@ console.log(hashMap.has(2131));
 console.log(hashMap.has(22));
 hashMap.remove(7);
 console.log(hashMap.length());
-hashMap.clear();
+//hashMap.clear();
+console.log(hashMap.values());
 console.log(hashMap.arr);

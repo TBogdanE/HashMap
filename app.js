@@ -42,14 +42,22 @@ class HashMap {
 
     return true;
   }
+
+  remove(key) {
+    if (!this.arr[key]) return false;
+
+    this.arr.splice(key, 1);
+    return true;
+  }
 }
 
 const hashMap = new HashMap();
 hashMap.set("name", "Bogdan");
 hashMap.set("namei", "Salut");
 //console.log(hashMap.get(2131));
-console.log(hashMap.get(99));
+console.log(hashMap.get(40));
 console.log(hashMap.get(22));
 console.log(hashMap.has(2131));
 console.log(hashMap.has(22));
+hashMap.remove(7);
 console.log(hashMap.arr);

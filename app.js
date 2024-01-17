@@ -6,6 +6,7 @@ class HashMap {
     this.occupied = this.load();
   }
 
+  //checks the size of the array, and make it bigger when the load factor is over 0.75
   load() {
     const length = this.length();
 
@@ -18,12 +19,14 @@ class HashMap {
     return length;
   }
 
+  //check if user want to search an index smaller than 0 or bigger than the array size
   check(value) {
     if (value < 0 || value >= this.arr.length) {
       throw new Error(`Trying to access index ${value}, which is out of bound`);
     }
   }
 
+  //creates the hash code
   hash(string) {
     let hashCode = 0;
 
@@ -36,6 +39,7 @@ class HashMap {
     return hashCode;
   }
 
+  //adds a new hash into the hash map
   set(key, value) {
     const hashCode = this.hash(key);
 
@@ -46,6 +50,7 @@ class HashMap {
     this.load();
   }
 
+  //returns the value of a specific key
   get(key) {
     this.check(key);
 
@@ -54,12 +59,14 @@ class HashMap {
     return this.arr[key];
   }
 
+  //check if the key exists in the hash map
   has(key) {
     if (!this.arr[key]) return false;
 
     return true;
   }
 
+  //remove specific key
   remove(key) {
     if (!this.arr[key]) return false;
 
@@ -68,6 +75,7 @@ class HashMap {
     return true;
   }
 
+  //returns how many items are in the hash map
   length() {
     let counter = 0;
     for (let i = 0; i < this.arr.length; i++) {
@@ -78,10 +86,12 @@ class HashMap {
     return counter;
   }
 
+  //clears the entire array
   clear() {
     this.arr.fill(null);
   }
 
+  //returns an array with all the values inside the hash map
   values() {
     let array = [];
     for (let i = 0; i < this.arr.length; i++) {
@@ -92,6 +102,7 @@ class HashMap {
     return array;
   }
 
+  //returns key - value pair of the hash map
   entries() {
     let array = [];
     for (let i = 0; i < this.arr.length; i++) {
@@ -199,9 +210,9 @@ hashMap.set("language3", "Java");
 //console.log(hashMap.get(2131));
 console.log("get(40):", hashMap.get(40));
 console.log("get(22):", hashMap.get(22));
-console.log("has(2131):", hashMap.has(2131));
+//console.log("has(2131):", hashMap.has(2131));
 console.log("has(22):", hashMap.has(22));
-//hashMap.remove(7);
+hashMap.remove(7);
 console.log("length:", hashMap.length());
 //hashMap.clear();
 console.log("values:", hashMap.values());
